@@ -17,14 +17,22 @@
             color: white;
             padding: 40px 20px;
             text-align: center;
+            animation: fadeIn 1.5s ease-in;
         }
         header h1 {
             font-size: 2.5em;
             margin: 0;
+            animation: slideIn 1.5s ease-out;
+            transition: transform 0.3s;
         }
         header p {
             font-size: 1.2em;
             margin: 10px 0 20px;
+            animation: slideIn 1.5s ease-out;
+            transition: transform 0.3s;
+        }
+        header p:hover {
+            transform: scale(1.1);
         }
         header .btn {
             padding: 10px 25px;
@@ -39,116 +47,26 @@
         header .btn:hover {
             background-color: #ff8a00;
         }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-        nav a {
-            padding: 15px 20px;
-            text-decoration: none;
-            color: #e52e71;
-            font-weight: bold;
-            font-size: 1em;
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
-        nav a:hover {
-            background-color: #ff8a00;
-            color: white;
-            border-radius: 5px;
-        }
-        .table-section {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: #fff;
-        }
-        .table-section table {
-            width: 80%;
-            margin: 0 auto;
-            border-collapse: collapse;
-            border: 1px solid #ddd;
-            background-color: #f9f9f9;
-        }
-        .table-section th, .table-section td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
-        .table-section th {
-            background-color: #ff8a00;
-            color: white;
-            font-weight: bold;
-        }
-        .table-section td {
-            font-size: 1em;
-            color: #333;
-        }
-        .table-section {
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px auto;
-            width: 80%;
-        }
-        footer {
-            background-color: #e52e71;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-        }
-      }
-        header {
-            background: linear-gradient(90deg, #ff8a00, #e52e71);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 2.5em;
-            margin: 0;
-        }
-        header p {
-            font-size: 1.2em;
-            margin: 10px 0 20px;
-        }
-        header .btn {
-            padding: 10px 25px;
-            background-color: #e52e71;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1em;
-            cursor: pointer;
-        }
-        header .btn:hover {
-            background-color: #ff8a00;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav a {
-            padding: 15px 20px;
-            text-decoration: none;
-            color: #e52e71;
-            font-weight: bold;
-            font-size: 1em;
-        }
-        nav a:hover {
-            background-color: #ff8a00;
-            color: white;
-            border-radius: 5px;
-        }
+
         .service-section {
             text-align: center;
             padding: 40px 20px;
@@ -227,20 +145,96 @@
         .book-now:hover {
             background-color: #ff8a00;
         }
+
         #gallery {
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
+        }
+        #gallery div {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         #gallery img {
             width: 100%;
             max-width: 300px;
             margin: 10px;
             border-radius: 10px;
+            transition: transform 0.3s, opacity 0.3s;
         }
-        #contact {
+        #gallery img:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #e52e71;
+            font-weight: bold;
+            font-size: 1em;
+            transition: color 0.3s, background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #ff8a00;
+            color: white;
+            border-radius: 5px;
+        }
+        .table-section {
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
+            background-color: #fff;
         }
+        .table-section table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        .table-section th, .table-section td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .table-section th:hover, .table-section td:hover {
+            background-color: #ff8a00;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .table-section table {
+                width: 90%;
+                font-size: 0.8em;
+            }
+            .table-section th, .table-section td {
+                padding: 5px;
+            }
+            #gallery div {
+                flex-direction: column;
+                align-items: center;
+            }
+            #gallery img {
+                max-width: 90%;
+                margin: 5px 0;
+            }
+        }
+
+            #contact {
+                text-align: center;
+                padding: 20px;
+            }
+
         footer {
             background-color: #e52e71;
             color: white;
@@ -263,6 +257,15 @@
     <a href="#gallery">Галерея робіт</a>
     <a href="#contact">Контакти</a>
 </nav>
+
+<section id="gallery">
+    <h2>Галерея робіт</h2>
+    <div>
+        <img src="photo1.jpg" alt="Робота 1">
+        <img src="photo2.jpg" alt="Робота 2">
+        <img src="photo3.jpg" alt="Робота 3">
+    </div>
+</section>
 
 <section id="services-table" class="table-section">
     <h2>Наші послуги</h2>
@@ -324,20 +327,12 @@
     </div>
 </section>
 
-<section id="gallery">
-    <h2>Галерея робіт</h2>
-    <div>
-        <img src="photo1.jpg" alt="Робота 1">
-        <img src="photo2.jpg" alt="Робота 2">
-        <img src="photo3.jpg" alt="Робота 3">
-    </div>
-</section>
-
 <section id="contact">
     <h2>Контакти</h2>
     <p><strong>Адреса:</strong> м. [Назва міста], вул. [Назва вулиці], буд. [номер будинку]</p>
     <p><strong>Телефон:</strong> [Номер телефону]</p>
 </section>
+
 
 <div id="modal" class="modal">
     <div class="modal-content">
@@ -378,6 +373,7 @@
 </footer>
 
 <script>
+    // Modal functionality
     const modal = document.getElementById("modal");
     const openModalBtn = document.getElementById("open-modal");
     const closeModalBtn = document.getElementById("close-modal");
@@ -419,4 +415,3 @@
 
 </body>
 </html>
-
